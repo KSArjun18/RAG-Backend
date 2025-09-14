@@ -105,12 +105,3 @@ npm start
 * Stream responses via WebSockets.
 * Use SQL/NoSQL for long-term storage of chat transcripts.
 * Containerize backend + Qdrant + Redis using Docker Compose.
-
-### 🎬 Demo
-
-* Record or host an unlisted video showing:
-
-  * Starting the backend
-  * Ingesting articles
-  * Handling chat queries
-  * Resetting sessions
