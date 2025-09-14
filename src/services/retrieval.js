@@ -2,7 +2,7 @@ const { QdrantClient } = require('@qdrant/js-client-rest');
 const { getEmbedding } = require('./embeddings');
 
 const qdrantClient = new QdrantClient({
-  url: "http://localhost:6333"
+  url: process.env.QDRANT_URL || 'http://localhost:6333'
 });
 
 const COLLECTION_NAME = 'news_articles';

@@ -1,7 +1,7 @@
 const { createClient } = require('redis');
 
 const redisClient = createClient({
-  url: "redis://default:iyOzPJbIFtVzX4kftIDcgZQAdasdXRMz@redis-19728.c244.us-east-1-2.ec2.redns.redis-cloud.com:19728",
+   url: process.env.REDIS_URL || 'redis://localhost:6379',
   checkCompatibility: false
 });
 
