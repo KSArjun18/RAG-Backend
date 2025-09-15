@@ -9,11 +9,17 @@ import json
 import os
 from typing import List
 import logging
+from dotenv import load_dotenv
 
-# Initialize components
+load_dotenv()
 model = SentenceTransformer('all-mpnet-base-v2')
-qdrant_client = QdrantClient(host="localhost", port=6333)
+QDRANT_URL = os.environ.get("QDRANT_URL", "http://localhost:6333")
+QDRANT_API_KEY = os.environ.get("QDRANT_API_KEY")
 
+if QDRANT_API_KEY:
+    qdrant_client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY,timeout=60.0)
+else:
+    qdrant_client = QdrantClient(url=QDRANT_URL)
 # Collection name
 COLLECTION_NAME = "news_articles"
 

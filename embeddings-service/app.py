@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from sentence_transformers import SentenceTransformer
 import logging
+import os
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -33,4 +34,5 @@ def health_check():
     return jsonify({'status': 'OK'})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
